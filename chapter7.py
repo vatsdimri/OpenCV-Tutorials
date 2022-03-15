@@ -1,6 +1,7 @@
 # color detection of images
 import cv2 as cv
 import numpy as np
+from chapter6 import stackImages 
 
 # Creating a a slide bar in which we can change the value of the variable during runtime
 # The function below will be called when we change the value of the variable
@@ -30,10 +31,17 @@ while True:
     lower = np.array([h_min, s_min, v_min])
     upper = np.array([h_max, s_max, v_max])
     mask = cv.inRange(imghsv, lower, upper)
-    print(h_min, h_max, s_min, s_max, v_min, v_max)
-    cv.imshow("Original", img)
-    cv.imshow("HSV", imghsv)
-    cv.imshow("Mask", mask)
+    imgResult = cv.bitwise_and(img, img, mask=mask)
+
+    # print(h_min, h_max, s_min, s_max, v_min, v_max)
+    # cv.imshow("Original", img)
+    # cv.imshow("HSV", imghsv)
+    # cv.imshow("Mask", mask)
+    # cv.imshow("result", imgResult)
+
+    imgStack = stackImages([img, imghsv, mask, imgResult],300, 1)
+    cv.imshow("stackImages", imgStack)
+
     if cv.waitKey(1) & 0xFF == ord('q'):
         break
     

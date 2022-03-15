@@ -30,7 +30,7 @@ img = cv.imread('resources\Lenna.png')
 
 
 imgray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
-outimg = stackImages([img, imgray],500, 0)
+outimg = stackImages([img, imgray, img],500, 1)
 cv.imshow("output", outimg)
 
 cv.waitKey(0)
