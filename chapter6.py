@@ -20,17 +20,17 @@ def stackImages( imgs, size=500, axis=0):
         return np.vstack(tuple(imgs))
     return np.hstack(tuple(imgs))
     
+if __name__ == '__main__':
+    img = cv.imread('resources\Lenna.png')
 
-img = cv.imread('resources\Lenna.png')
-
-# imghor = np.hstack([img, imgray ])
-# cv.imshow("horizontal stacking of Images", imghor)
-# imgver = np.vstack((img, img))
-# cv.imshow("vertical stacking of Images", imgver)
+    # imghor = np.hstack([img, imgray ])
+    # cv.imshow("horizontal stacking of Images", imghor)
+    # imgver = np.vstack((img, img))
+    # cv.imshow("vertical stacking of Images", imgver)
 
 
-imgray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
-outimg = stackImages([img, imgray, img],500, 1)
-cv.imshow("output", outimg)
+    imgray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
+    outimg = stackImages([img, imgray, img],500, 1)
+    cv.imshow("output", outimg)
 
-cv.waitKey(0)
+    cv.waitKey(0)
