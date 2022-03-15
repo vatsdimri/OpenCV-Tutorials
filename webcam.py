@@ -10,7 +10,7 @@ vid.set(0, 640) # this set the width of the window of horizontal resolution (id 
 vid.set(1, 480) # this is for vertical resolution (id = 1 for vertical)
 
 # changing the brightness of the video
-vid.set(10, 50)  # id = 10 for brightness
+vid.set(10, 5)  # id = 10 for brightness
 
 while True:
     success, img = vid.read()
